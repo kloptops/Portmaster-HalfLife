@@ -4,10 +4,35 @@
 This is the configuration files and the required steps to build the xash3d engine for handheld emulator devices (Anbernic RG353V, etc.) using the Portmaster scripts for launching.
 
 
-# Half Life Xash3d
+# Installation
 
 
-To install unzip into your Ports folder, copy over the `valve` folder from your steam copy of the game. You have to make sure to not overwrite the included files in `valve`.
+To install unzip into your `ports` folder, copy over the `valve` folder from your steam installation of the game. You have to make sure to not overwrite the included files in `valve`.
+
+
+# Controls
+
+
+- Left Analog: Move/Strafe
+- Right Analog: Look
+- A_BUTTON: Use
+- B_BUTTON: Jump
+- X_BUTTON: Flashlight
+- Y_BUTTON: Reload
+- L1: Crouch
+- L2: Walk
+- R1: Fire
+- R2: Alt-Fire
+- DPAD_UP: Spray
+- DPAD_LEFT: Last Weapon
+- DPAD_RIGHT: Next Weapon
+- DPAD_DOWN: Quick Swap
+- Start: Pause
+- Select + X: Menu
+- Select + L1: Quick Load
+- Select + R1: Quick Save
+- Select + B: Screenshot
+- Select + Start: Quit
 
 
 ## Build Environment

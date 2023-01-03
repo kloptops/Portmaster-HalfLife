@@ -7,7 +7,7 @@ This is the configuration files and the required steps to build the xash3d engin
 # Installation
 
 
-To install unzip into your `ports` folder, copy over the `valve` folder from your steam installation of the game. You have to make sure to not overwrite the included files in `valve`.
+To install unzip into your `ports` folder, copy over the `valve` folder from your steam installation of the game into `ports/Half-Life/valve`.
 
 
 # Controls
@@ -66,7 +66,7 @@ My UnofficialOS & Half Life stuff is currently in `~/Half-Life`, so to run the d
     ./waf configure -T release --enable-gles2 --enable-static-gl
     ./waf clean
     ./waf build
-    ./waf install --destdir=../output
+    ./waf install --destdir=../build
 
     cd ..
 
@@ -77,17 +77,17 @@ My UnofficialOS & Half Life stuff is currently in `~/Half-Life`, so to run the d
     ./waf configure -T release --64bit
     ./waf clean
     ./waf build
-    ./waf install --destdir=../output
+    ./waf install --destdir=../build
 
     # Blue shift client files
     git checkout bshift
     ./waf configure -T release --64bit
     ./waf clean
     ./waf build
-    ./waf install --destdir=../output
+    ./waf install --destdir=../build
 
     cd ..
 
 
-At the end all your fun stuff is in `output`.
+At the end all the binary stuff is in `build`.
 

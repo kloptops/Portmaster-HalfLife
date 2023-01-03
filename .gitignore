@@ -1,9 +1,10 @@
-### macOS ###
+### Ignore macOS stuff ###
 .DS_Store
 ._*
 
-# Compiled files
-*.so
+# Ignore Compiled files
+build/
+games/
 
-# Releases
+# Ignore Releases
 Half-Life.zip

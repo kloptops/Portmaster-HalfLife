@@ -31,10 +31,10 @@ if [[ -f "${GAMEDIR}/binaries/first_run" ]]; then
 
   echo "Copying handheld binaries/config files." > /dev/tty0 2>&1
 
-  cp -rfv "${GAMEDIR}/binaries/valve" "${GAMEDIR}/" > /dev/tty0 2>&1
+  $ESUDO cp -rfv "${GAMEDIR}/binaries/valve" "${GAMEDIR}/" > /dev/tty0 2>&1
 
   # Mark step as done
-  rm -f "${GAMEDIR}/binaries/first_run"
+  $ESUDO rm -f "${GAMEDIR}/binaries/first_run"
 fi
 
 $ESUDO chmod 666 /dev/tty1
@@ -43,7 +43,7 @@ export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib32:$GAMEDIR/valve/dlls:$GAMEDIR/valve/cl_dlls"
 
 $GPTOKEYB "xash3d" &
-$TASKSET ./xash3d -sdl_renderer gles2 -fullscreen -console 2>&1 | tee -a ./log.txt
+$TASKSET ./xash3d -ref gles2 -fullscreen -console 2>&1 | tee -a ./log.txt
 
 $ESUDO kill -9 $(pidof gptokeyb)
 unset LD_LIBRARY_PATH

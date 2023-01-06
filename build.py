@@ -30,7 +30,7 @@ def build_files(root, dest_path, max_depth=None):
             dest_name = dest_path / temp
             yield source_name, dest_name
 
-
+valid = False
 with zipfile.ZipFile('Half-Life.zip', 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
     zf.write('Half-Life.sh')
 
@@ -42,6 +42,17 @@ with zipfile.ZipFile('Half-Life.zip', 'w', compression=zipfile.ZIP_DEFLATED, com
         print(src, dest)
         zf.write(str(src), str(dest))
 
-    for src, dest in build_files(Path('build/valve'), 'Half-Life/binaries/valve'):
-        print(src, dest)
-        zf.write(str(src), str(dest))
+    for folder in ['valve', 'bshift', 'gearbox']:
+        folder_root = Path('build') / folder
+        folder_dest = Path('Half-Life/binaries') / folder
+        if folder_root.is_dir():
+            if folder == 'valve':
+                # Pure jank
+                valid = True
+            for src, dest in build_files(folder_root, folder_dest):
+                print(src, dest)
+                zf.write(str(src), str(dest))
+
+if not valid:
+    print("No 'valve' build folder found, this is not a valid 'Half-Life.zip', deleting zip file.")
+    Path('Half-Life.zip').unlink()

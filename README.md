@@ -9,6 +9,9 @@ This is the configuration files and the required steps to build the xash3d engin
 
 To install unzip into your `ports` folder, copy over the `valve` folder from your steam installation of the game into `ports/Half-Life/valve`.
 
+If you want to play Half Life: Blue Shift or Half Life Opposing Forces copy over the `bshift` and/or `gearbox` folders from your steam installations of the games.
+
+_Note: Currently it doesnt matter if you use Windows, Linux or MacOS versions of the game. On MacOS it will state that the games are incompatible if you have a newer OS, that doesnt matter, install it anyway._
 
 # Controls
 
@@ -86,8 +89,22 @@ My UnofficialOS & Half Life stuff is currently in `~/Half-Life`, so to run the d
     ./waf build
     ./waf install --destdir=../build
 
+    # Opforce client files
+    git checkout opfor
+    ./waf configure -T release --64bit
+    ./waf clean
+    ./waf build
+    ./waf install --destdir=../build
+
     cd ..
 
 
 At the end all the binary stuff is in `build`.
 
+Finally run `./build.py` to combine the compiled files in `build` with the script/config files suitable for Portmaster distribution.
+
+# TODO:
+
+- [ ] Add launch scripts for Blue Shift / Opposing Forces to the ports directory when they're detected.
+- [ ] Consolidate the autoexe.cfg / config.cfg / opengl.cfg files.
+- [ ] Better installation instructions

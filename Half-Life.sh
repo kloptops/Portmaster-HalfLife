@@ -13,12 +13,16 @@ source $controlfolder/tasksetter
 
 get_controls
 
-GAMEDIR="/$directory/ports/Half-Life"
+PORTDIR="/$directory/ports/"
+GAMEDIR="${PORTDIR}/Half-Life"
 cd $GAMEDIR
 
 # Grab text output...
 $ESUDO chmod 666 /dev/tty0
 printf "\033c" > /dev/tty0
+
+## Load directly into a mod
+RUNMOD=
 
 # Install half life binaries / config files
 if [[ -f "${GAMEDIR}/binaries/valve_first_run" ]]; then
@@ -33,25 +37,37 @@ if [[ -f "${GAMEDIR}/binaries/valve_first_run" ]]; then
   $ESUDO cp -rfv "${GAMEDIR}/binaries/valve" "${GAMEDIR}/" > /dev/tty0 2>&1
 
   # Mark step as done
-  $ESUDO rm -f "${GAMEDIR}/binaries/valve_first_run"
+  $ESUDO rm -fv "${GAMEDIR}/binaries/valve_first_run" > /dev/tty0 2>&1
 fi
 
 # Do bshift install if the files exist
 if [[ -f "${GAMEDIR}/bshift/halflife.wad" ]] && [[ -f "${GAMEDIR}/binaries/bshift_first_run" ]]; then
 
+  echo "Copying bshift binaries/config files." > /dev/tty0 2>&1
+
   $ESUDO cp -rfv "${GAMEDIR}/binaries/bshift" "${GAMEDIR}/" > /dev/tty0 2>&1
 
+  # Make mod run script
+  $ESUDO cp -v "${PORTDIR}/Half-Life.sh" "${PORTDIR}/Half-Life Blue Shift.sh" > /dev/tty0 2>&1
+  $ESUDO sed -i 's/RUNMOD=/RUNMOD="-game bshift"/' "${PORTDIR}/Half-Life Blue Shift.sh"
+
   # Mark step as done
-  $ESUDO rm -f "${GAMEDIR}/binaries/bshift_first_run"
+  $ESUDO rm -fv "${GAMEDIR}/binaries/bshift_first_run" > /dev/tty0 2>&1
 fi
 
 # Do opforce install if the files exist
 if [[ -f "${GAMEDIR}/gearbox/OPFOR.WAD" ]] && [[ -f "${GAMEDIR}/binaries/gearbox_first_run" ]]; then
 
+  echo "Copying gearbox binaries/config files." > /dev/tty0 2>&1
+
   $ESUDO cp -rfv "${GAMEDIR}/binaries/gearbox" "${GAMEDIR}/" > /dev/tty0 2>&1
 
+  # Make mod run script
+  $ESUDO cp -v "${PORTDIR}/Half-Life.sh" "${PORTDIR}/Half-Life Opposing Forces.sh" > /dev/tty0 2>&1
+  $ESUDO sed -i 's/RUNMOD=/RUNMOD="-game gearbox"/' "${PORTDIR}/Half-Life Opposing Forces.sh"
+
   # Mark step as done
-  $ESUDO rm -f "${GAMEDIR}/binaries/gearbox_first_run"
+  $ESUDO rm -fv "${GAMEDIR}/binaries/gearbox_first_run" > /dev/tty0 2>&1
 fi
 
 $ESUDO chmod 666 /dev/tty1

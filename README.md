@@ -6,11 +6,11 @@ This is the configuration files and the required steps to build the xash3d engin
 
 # Installation
 
-To play **Half-Life** you need to copy over the `valve` folder from your steam install of [Half-Life](https://store.steampowered.com/app/70/HalfLife/) info `ports/Half-Life/valve`, on first run it will override the required files to run.
+To play **Half-Life** you need to copy over the `valve` folder from your steam install of [Half-Life](https://store.steampowered.com/app/70/HalfLife/) into `ports/Half-Life/valve`, on first run it will override the required files to run.
 
-To play **Half-Life: Blue Shift** you need to have Half-Life installed, then copy over the `bshift` folder from your steam install of [Half-Life: Blue Shift](https://store.steampowered.com/app/130/HalfLife_Blue_Shift/) info `ports/Half-Life/bshift`, on first run it will override the required files to run, and create a `Half-Life Blue Shift.sh` in your ports directory.
+To play **Half-Life: Blue Shift** you need to have Half-Life installed, then copy over the `bshift` folder from your steam install of [Half-Life: Blue Shift](https://store.steampowered.com/app/130/HalfLife_Blue_Shift/) into `ports/Half-Life/bshift`, on first run it will override the required files to run, and create a `Half-Life Blue Shift.sh` in your ports directory.
 
-To play **Half-Life: Opposing Forces** you need to have Half-Life installed, then copy over the `gearbox` folder from your steam install of [Half-Life: Opposing Forces](https://store.steampowered.com/app/50/HalfLife_Opposing_Force/) info `ports/Half-Life/gearbox`, on first run it will override the required files to run, and create a `Half-Life Opposing Fores.sh` in your ports directory.
+To play **Half-Life: Opposing Forces** you need to have Half-Life installed, then copy over the `gearbox` folder from your steam install of [Half-Life: Opposing Forces](https://store.steampowered.com/app/50/HalfLife_Opposing_Force/) into `ports/Half-Life/gearbox`, on first run it will override the required files to run, and create a `Half-Life Opposing Fores.sh` in your ports directory.
 
 _Note: Currently it doesnt matter if you use Windows, Linux or MacOS versions of the game. On MacOS it will state that the games are incompatible if you have a newer OS, that doesnt matter, install it anyway._
 
@@ -109,3 +109,5 @@ Finally run `./build.py` to combine the compiled files in `build` with the scrip
 - [x] Add launch scripts for Blue Shift / Opposing Forces to the ports directory when they're detected.
 - [ ] Consolidate the autoexe.cfg / config.cfg / opengl.cfg files.
 - [ ] Better installation instructions
+- [ ] Build a more robust build setup
+- [ ] Add support for counterstrike 1.6

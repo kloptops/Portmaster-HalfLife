@@ -84,4 +84,4 @@ unset SDL_GAMECONTROLLERCONFIG
 $ESUDO systemctl restart oga_events &
 
 # Disable console
-printf "\033c" >> /dev/tty1
+printf "\033c" >> /dev/tty0

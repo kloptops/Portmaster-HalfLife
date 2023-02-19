@@ -1,5 +1,9 @@
-# Portmaster-HalfLife
+# THIS REPO IS DEPRECATED
 
+Please see [Portmaster-misc](https://github.com/kloptops/Portmaster-misc) for future updates.
+
+
+# Portmaster-HalfLife
 
 This is the configuration files and the required steps to build the xash3d engine for handheld emulator devices (Anbernic RG353V, etc.) using the Portmaster scripts for launching.
 
